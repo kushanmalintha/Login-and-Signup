@@ -8,12 +8,12 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Define the app bar for the login screen
+      // Define the app bar for the signup screen
       appBar: AppBar(
         title: const Text('Sign up'), // Title of the app bar
       ),
       // Set the body of the scaffold to display the LoginBody widget
-      body: const SignupBody(),
+      body: SignupBody(),
     );
   }
 }

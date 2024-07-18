@@ -6,13 +6,15 @@ class TextBox extends StatelessWidget {
   final String hintText;
   // Keyboard type for the text box (e.g., text, number, email, etc.)
   final TextInputType type;
+  // TextEditingController for the text box
+  final TextEditingController controller;
 
   // Constructor to initialize hintText and type
-  const TextBox({
-    super.key,
-    required this.hintText,
-    required this.type,
-  });
+  const TextBox(
+      {super.key,
+      required this.hintText,
+      required this.type,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class TextBox extends StatelessWidget {
       // Set the width of the text box
       width: 350,
       child: TextField(
+        controller: controller,
         // Set the keyboard type for the text box
         keyboardType: type,
         // Define the decoration for the text box

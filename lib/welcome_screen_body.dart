@@ -4,6 +4,7 @@ import 'package:login_signup/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:login_signup/login_screen.dart';
 import 'package:login_signup/round_button.dart';
+import 'package:login_signup/signup_screen.dart';
 
 // A widget representing the body of the welcome screen
 class WelcomeBody extends StatelessWidget {
@@ -60,7 +61,13 @@ class WelcomeBody extends StatelessWidget {
             RoundButton(
               text: "SIGNUP",
               press: () {
-                // Add signup function
+                // Navigate to the signup screen when the button is pressed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SignupScreen(),
+                  ),
+                );
               },
               backgroundColor: kPrimaryLightColor,
               foregroundColor: Colors.black,

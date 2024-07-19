@@ -4,7 +4,7 @@ import 'package:login_signup/user_model.dart';
 
 class AuthApiService {
   static const String _baseUrl =
-      'http://192.168.8.153:3000/api/signup'; // Replace with your server URL
+      'http://192.168.8.153:3000/api/auth'; // Replace with your server URL
 
   Future<User> signUp(String username, String email, String password) async {
     final response = await http.post(
@@ -21,6 +21,23 @@ class AuthApiService {
       return User.fromJson(jsonDecode(response.body)['user']);
     } else {
       throw Exception('Failed to sign up');
+    }
+  }
+
+  Future<String> login(String email, String password) async {
+    final response = await http.post(
+      Uri.parse('$_baseUrl/login'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'email': email,
+        'password': password,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return jsonDecode(response.body);
+    } else {
+      throw Exception('Failed to login');
     }
   }
 }

@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
         title: const Text('Login Page'), // Title of the app bar
       ),
       // Set the body of the scaffold to display the LoginBody widget
-      body: const LoginBody(),
+      body: LoginBody(),
     );
   }
 }

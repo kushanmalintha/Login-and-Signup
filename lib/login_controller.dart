@@ -15,10 +15,14 @@ class LoginController {
   Future<void> login(BuildContext context) async {
     try {
       // Attempt to log in the user using the provided credentials
-      await apiService.login(
+      final response = await apiService.login(
         emailController.text,
         passwordController.text,
       );
+
+      // Log the response for debugging purposes
+      print('Login response: $response');
+
       // Navigate to the main screen upon successful login
       if (context.mounted) {
         Navigator.push(
@@ -31,7 +35,7 @@ class LoginController {
       print(e);
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Failed to log in')),
+          const SnackBar(content: Text('Failed to login')),
         );
       }
     }

@@ -7,7 +7,7 @@ import 'package:login_signup/textbox.dart';
 
 // A widget representing the body of the login screen
 class LoginBody extends StatelessWidget {
-  final LoginController _loginController = LoginController();
+  final LoginController loginController = LoginController();
   LoginBody({super.key});
 
   @override
@@ -34,19 +34,19 @@ class LoginBody extends StatelessWidget {
               TextBox(
                   hintText: "Email",
                   type: TextInputType.emailAddress,
-                  controller: _loginController.emailController),
+                  controller: loginController.emailController),
               SizedBox(height: size.height * 0.01),
               // Display the password text box
               TextBox(
                 hintText: "Password",
                 type: TextInputType.visiblePassword,
-                controller: _loginController.passwordController,
+                controller: loginController.passwordController,
               ),
               SizedBox(height: size.height * 0.03),
               // Display the login button
               RoundButton(
                 text: "Login",
-                press: () => _loginController.login(context),
+                press: () => loginController.login(context),
                 backgroundColor: kPrimaryLightColor,
                 foregroundColor: Colors.black,
               ),
